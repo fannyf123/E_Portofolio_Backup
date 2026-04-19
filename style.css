@@ -113,7 +113,7 @@ html {
 
 .shape {
   position: absolute;
-  opacity: 0.12;
+  opacity: 0.22;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -283,7 +283,7 @@ html {
 
 /* Dark mode shapes */
 [data-theme="dark"] .shape {
-  opacity: 0.06;
+  opacity: 0.12;
 }
 
 /* Reduce motion for accessibility */
@@ -1797,6 +1797,83 @@ ul, ol { list-style: none; }
 
 .theme-toggle:hover .theme-icon {
   transform: rotate(30deg) scale(1.1);
+}
+
+/* ============================================
+   TRANSPARENT SECTION BACKGROUNDS
+   Allows particles to show through all sections
+   ============================================ */
+.hero {
+  background: rgba(250, 251, 253, 0.88) !important;
+}
+
+.about {
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.education {
+  background: rgba(250, 251, 253, 0.85) !important;
+}
+
+.philosophy {
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.portfolio {
+  background: rgba(250, 251, 253, 0.85) !important;
+}
+
+.skills {
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.certificates {
+  background: rgba(250, 251, 253, 0.85) !important;
+}
+
+.contact {
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.footer {
+  background: rgba(13, 17, 23, 0.92) !important;
+}
+
+/* Dark mode transparent backgrounds */
+[data-theme="dark"] .hero {
+  background: rgba(20, 22, 29, 0.85) !important;
+}
+
+[data-theme="dark"] .about {
+  background: rgba(26, 29, 38, 0.82) !important;
+}
+
+[data-theme="dark"] .education {
+  background: rgba(20, 22, 29, 0.82) !important;
+}
+
+[data-theme="dark"] .philosophy {
+  background: rgba(26, 29, 38, 0.82) !important;
+}
+
+[data-theme="dark"] .portfolio {
+  background: rgba(20, 22, 29, 0.82) !important;
+}
+
+[data-theme="dark"] .skills {
+  background: rgba(26, 29, 38, 0.82) !important;
+}
+
+[data-theme="dark"] .certificates {
+  background: rgba(20, 22, 29, 0.82) !important;
+}
+
+[data-theme="dark"] .contact {
+  background: rgba(26, 29, 38, 0.82) !important;
+}
+
+[data-theme="dark"] .footer {
+  background: rgba(10, 12, 18, 0.90) !important;
 }
 
 /* ============================================

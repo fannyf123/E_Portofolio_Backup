@@ -279,11 +279,11 @@ document.head.appendChild(style);
     return {
       x: x !== undefined ? x : Math.random() * width,
       y: y !== undefined ? y : Math.random() * height,
-      size: Math.random() * 4 + 1,
+      size: Math.random() * 5 + 1.5,
       speedX: (Math.random() - 0.5) * 0.6,
       speedY: (Math.random() - 0.5) * 0.4 - 0.15,
       color: color,
-      alpha: isDark ? (Math.random() * 0.15 + 0.04) : (Math.random() * 0.22 + 0.06),
+      alpha: isDark ? (Math.random() * 0.20 + 0.10) : (Math.random() * 0.30 + 0.15),
       pulse: Math.random() * Math.PI * 2,
       pulseSpeed: Math.random() * 0.02 + 0.005,
       origSpeedX: 0,
