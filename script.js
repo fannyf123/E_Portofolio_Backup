@@ -222,6 +222,120 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- Modal Logic ----------
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalClose = document.getElementById('modalClose');
+  const modalContent = document.getElementById('modalContent');
+  const modalTriggers = document.querySelectorAll('.btn-modal');
+
+  // Modal Data (Mock)
+  const artifactData = {
+    'modal-rpp1': {
+      title: 'RPP Siklus 1 — Gambar Teknik Manufaktur',
+      type: 'RPP & Modul Ajar',
+      context: 'RPP ini disusun untuk kelas X Teknik Pemesinan pada materi Proyeksi Ortogonal. Latar belakang penyusunan didasarkan pada hasil asesmen diagnostik yang menunjukkan keberagaman gaya belajar siswa (visual dan kinestetik).',
+      purpose: 'Menerapkan pembelajaran berdiferensiasi dan UDL (Universal Design for Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam agar tujuan pembelajaran dapat tercapai secara optimal.',
+      pros: [
+        'Sintaks PjBL tergambar jelas dan terstruktur.',
+        'Mengakomodasi diferensiasi konten dan produk.',
+        'Instrumen asesmen sudah dilengkapi rubrik yang jelas.'
+      ],
+      cons: [
+        'Alokasi waktu pada tahap pengerjaan proyek masih kurang presisi.',
+        'Bahan ajar pengayaan belum terlalu bervariasi.'
+      ],
+      theory: 'Sesuai dengan teori Konstruktivisme Vygotsky, RPP ini merancang kegiatan kelompok agar terjadi scaffolding antar teman sebaya. Integrasi UDL (Rose & Meyer) diterapkan melalui berbagai representasi materi (video, teks, dan alat peraga nyata).'
+    },
+    'modal-modul1': {
+      title: 'Modul Ajar — Proyeksi Ortogonal',
+      type: 'Bahan Ajar',
+      context: 'Modul dikembangkan karena minimnya literatur bahasa Indonesia yang mudah dipahami oleh siswa SMK terkait aturan proyeksi Eropa dan Amerika.',
+      purpose: 'Menyediakan bahan ajar mandiri yang interaktif dan mudah dipahami, dilengkapi dengan ilustrasi 3D dan langkah-langkah menggambar yang sistematis.',
+      pros: [
+        'Bahasa yang digunakan komunikatif dan sesuai tingkat kognitif siswa.',
+        'Visualisasi 3D sangat membantu pemahaman keruangan.'
+      ],
+      cons: [
+        'Biaya cetak berwarna cukup mahal jika dibagikan secara fisik.',
+        'Belum terintegrasi penuh dengan platform LMS sekolah.'
+      ],
+      theory: 'Pengembangan modul didasarkan pada teori Cognitive Load Theory (Sweller), di mana informasi visual dan teks diintegrasikan berdekatan (spatial contiguity effect) untuk meminimalkan beban kognitif extraneous.'
+    },
+    // Default template for others
+    'default': {
+      title: 'Analisis Artefak Pembelajaran',
+      type: 'Dokumentasi',
+      context: '[Jelaskan latar belakang dan konteks pembuatan artefak ini berdasarkan observasi di kelas PPL]',
+      purpose: '[Jelaskan tujuan utama mengapa artefak ini dibuat dan digunakan]',
+      pros: [
+        '[Sebutkan kelebihan 1]',
+        '[Sebutkan kelebihan 2]'
+      ],
+      cons: [
+        '[Sebutkan kekurangan atau area perbaikan 1]',
+        '[Sebutkan kekurangan atau area perbaikan 2]'
+      ],
+      theory: '[Jelaskan analisis artefak berdasarkan kajian teori yang dipelajari di mata kuliah Pemahaman Peserta Didik atau Prinsip Pengajaran]'
+    }
+  };
+
+  function openModal(modalId) {
+    const data = artifactData[modalId] || artifactData['default'];
+    
+    let prosHtml = data.pros.map(p => `<li>✅ ${p}</li>`).join('');
+    let consHtml = data.cons.map(c => `<li>⚠️ ${c}</li>`).join('');
+
+    modalContent.innerHTML = `
+      <div class="modal-header">
+        <h3>${data.title}</h3>
+        <p>${data.type}</p>
+      </div>
+      <div class="modal-body">
+        <h4>📌 Konteks Pembuatan</h4>
+        <p>${data.context}</p>
+        
+        <h4>🎯 Tujuan</h4>
+        <p>${data.purpose}</p>
+        
+        <h4>📈 Kelebihan & Kekurangan</h4>
+        <ul>
+          ${prosHtml}
+          ${consHtml}
+        </ul>
+        
+        <h4>📖 Kajian Teori</h4>
+        <p>${data.theory}</p>
+      </div>
+    `;
+
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(btn.getAttribute('data-modal'));
+    });
+  });
+
+  modalClose.addEventListener('click', closeModal);
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
 });
 
 // Fade-in keyframe (used by filter)
