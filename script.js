@@ -231,20 +231,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Modal Data (Mock)
   const artifactData = {
     'modal-rpp1': {
-      title: 'RPP Siklus 1 — Gambar Teknik Manufaktur',
-      type: 'RPP & Modul Ajar',
-      context: 'RPP ini disusun untuk kelas X Teknik Pemesinan pada materi Proyeksi Ortogonal. Latar belakang penyusunan didasarkan pada hasil asesmen diagnostik yang menunjukkan keberagaman gaya belajar siswa (visual dan kinestetik).',
-      purpose: 'Menerapkan pembelajaran berdiferensiasi dan UDL (Universal Design for Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam agar tujuan pembelajaran dapat tercapai secara optimal.',
+      title: 'RPP Siklus 1 — Gambar Teknik Manufaktur (Deep Learning)',
+      type: 'RPP & Modul Ajar (Fase F / Kelas XI TPM)',
+      context: 'RPP ini disusun untuk kelas XI Teknik Pemesinan (TPM) di SMK Negeri 2 Depok Sleman pada materi "Perancangan Gambar Rakitan Kompleks (Assembly) Menggunakan Aplikasi Teknologi CAD". Latar belakang penyusunan didasarkan pada hasil asesmen diagnostik di mana mayoritas siswa memiliki gaya belajar visual-kinestetik dan sudah menguasai dasar 3D Part Modeling (.ipt).',
+      purpose: 'Menerapkan Perencanaan Pembelajaran Mendalam (Deep Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam, membimbing mereka dari merakit komponen fisik di bengkel hingga mahir merakit secara virtual (Assembly) di Autodesk Inventor.',
       pros: [
-        'Sintaks PjBL tergambar jelas dan terstruktur.',
-        'Mengakomodasi diferensiasi konten dan produk.',
-        'Instrumen asesmen sudah dilengkapi rubrik yang jelas.'
+        'Menerapkan scaffolding (panduan bertahap) bagi murid yang butuh panduan ekstra.',
+        'Menyediakan pengayaan eksplorasi fitur lanjut bagi siswa yang lebih cepat paham.',
+        'Sangat relevan dengan dunia kerja industri manufaktur karena fokus pada visualisasi 3D realistis.'
       ],
       cons: [
-        'Alokasi waktu pada tahap pengerjaan proyek masih kurang presisi.',
-        'Bahan ajar pengayaan belum terlalu bervariasi.'
+        'Membutuhkan ketersediaan perangkat komputer yang memadai untuk menjalankan software CAD yang berat.',
+        'Alokasi waktu (24 JP) harus dikelola ketat agar semua siswa mencapai target kompetensi perakitan kompleks.'
       ],
-      theory: 'Sesuai dengan teori Konstruktivisme Vygotsky, RPP ini merancang kegiatan kelompok agar terjadi scaffolding antar teman sebaya. Integrasi UDL (Rose & Meyer) diterapkan melalui berbagai representasi materi (video, teks, dan alat peraga nyata).'
+      theory: 'Pembelajaran ini didasarkan pada teori Konstruktivisme Vygotsky dengan penerapan Scaffolding. Pendekatan Diferensiasi (Tomlinson) juga diterapkan dengan membedakan proses belajar antara kelompok yang butuh panduan bertahap dengan kelompok yang siap untuk eksplorasi mandiri.'
     },
     'modal-modul1': {
       title: 'Modul Ajar — Proyeksi Ortogonal',
