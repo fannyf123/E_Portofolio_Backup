@@ -56,6 +56,35 @@
   height: 200px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+}
+
+/* Hover overlay on card image */
+.card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.card-img-overlay span {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  padding: 8px 20px;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.02em;
+}
+
+.portfolio-card:hover .card-img-overlay {
+  opacity: 1;
 }
 
 .portfolio-card-img img {
@@ -84,6 +113,8 @@
 .card-tag.modul   { background: var(--teal); }
 .card-tag.media   { background: var(--lavender); }
 .card-tag.asesmen { background: var(--amber); }
+.card-tag.sky     { background: var(--sky); }
+.card-tag.coral   { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
 
 .portfolio-card-body {
   padding: 24px;
@@ -199,14 +230,25 @@
   font-size: 24px;
   color: var(--gray-900);
   margin-bottom: 10px;
+  line-height: 1.35;
 }
 
-.modal-header p {
-  color: var(--gray-500);
-  font-size: 14px;
+.modal-type-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(46,196,182,0.12), rgba(86,204,242,0.12));
+  color: var(--teal-dark);
+  border: 1px solid rgba(46,196,182,0.3);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 50px;
   margin-bottom: 24px;
+}
+
+.modal-header {
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 2px solid var(--gray-100);
+  margin-bottom: 8px;
 }
 
 .modal-body h4 {
@@ -325,3 +367,96 @@
   }
 }
 
+/* ============================================
+   MODAL — FILE LINKS & PDF PREVIEW
+   ============================================ */
+.modal-files {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1.5px dashed var(--gray-200);
+}
+
+.modal-file-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.modal-file-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--off-white);
+  border: 2px solid var(--gray-200);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-smooth);
+  cursor: pointer;
+}
+
+.modal-file-btn:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(46,196,182,0.28);
+}
+
+/* PDF preview embed */
+.modal-pdf-preview {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1.5px dashed var(--gray-200);
+}
+
+.pdf-embed-wrapper {
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+.pdf-embed {
+  width: 100%;
+  height: 420px;
+  display: block;
+  border: none;
+}
+
+.pdf-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--gray-500);
+}
+
+.pdf-fallback span {
+  font-size: 3rem;
+}
+
+.pdf-fallback p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pdf-embed {
+    height: 280px;
+  }
+  .modal-file-list {
+    flex-direction: column;
+  }
+  .modal-file-btn {
+    justify-content: center;
+  }
+}

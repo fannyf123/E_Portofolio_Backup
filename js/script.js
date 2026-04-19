@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalContent = document.getElementById("modalContent");
   const modalTriggers = document.querySelectorAll(".btn-modal");
 
-  // Modal Data (Mock)
+  // Modal Data — Artefak Siklus 1
   const artifactData = {
     "modal-rpp1": {
       title: "RPP Siklus 1 — Gambar Teknik Manufaktur (Deep Learning)",
@@ -259,12 +259,15 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       theory:
         "Pembelajaran ini didasarkan pada teori Konstruktivisme Vygotsky dengan penerapan Scaffolding. Pendekatan Diferensiasi (Tomlinson) juga diterapkan dengan membedakan proses belajar antara kelompok yang butuh panduan bertahap dengan kelompok yang siap untuk eksplorasi mandiri.",
+      fileLinks: [
+        { label: "📄 RPP Siklus 1 (DOCX)", url: "Siklus%201/RPP%20Siklus%201_FIX%20.docx" },
+      ],
     },
-    "modal-modul1": {
-      title: "Bahan Ajar — Assembly Tool Post",
-      type: "Modul Ajar / Bahan Ajar Cetak & Digital",
+    "modal-materi1": {
+      title: "Bahan Ajar & Materi Siklus 1 — Assembly Tool Post",
+      type: "Bahan Ajar Cetak & Digital (Fase F / Kelas XI TPM)",
       context:
-        'Modul ini dirancang khusus untuk Siklus 1, materi "Perancangan Gambar Rakitan Kompleks". Disusun berdasarkan Capaian Pembelajaran Fase F.',
+        'Bahan ajar ini dirancang khusus untuk Siklus 1, materi "Perancangan Gambar Rakitan Kompleks". Disusun berdasarkan Capaian Pembelajaran Fase F dan dilengkapi materi per pertemuan (P1–P3).',
       purpose:
         "Menyediakan panduan sistematis bagi siswa untuk merakit 8 komponen utama Tool Post (menetapkan Grounded Component, constraint Mate, Flush, Insert) hingga mencapai derajat kebebasan (DOF) = 0.",
       pros: [
@@ -278,6 +281,12 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       theory:
         "Pengembangan bahan ajar ini didasarkan pada prinsip Cognitive Load Theory (Sweller) yang berusaha mengurangi extraneous cognitive load dengan menyajikan informasi esensial seperti daftar komponen dan troubleshooting secara ringkas dan terfokus.",
+      fileLinks: [
+        { label: "📘 Bahan Ajar Siklus 1 (DOCX)", url: "Siklus%201/Materi/BahanAjar_Siklus1_TFLM_XI.docx" },
+        { label: "📄 Materi Pertemuan 1 (DOCX)", url: "Siklus%201/Materi/Materi_Siklus-1_P1.docx" },
+        { label: "📄 Materi Pertemuan 2 (DOCX)", url: "Siklus%201/Materi/Materi_Siklus-1_P2.docx" },
+        { label: "📄 Materi Pertemuan 3 (DOCX)", url: "Siklus%201/Materi/Materi_Siklus-1_P3.docx" },
+      ],
     },
     "modal-media1": {
       title: "Media Presentasi (PPT) — Assembly Tool Post",
@@ -295,7 +304,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Masih membutuhkan demonstrasi software langsung agar siswa benar-benar paham alur klik pada mouse.",
       ],
       theory:
-        "Desain media ini bertumpu pada Dual Coding Theory (Paivio), di mana integrasi stimulasi verbal (penjelasan guru) dan gambar (slide PPT) terbukti lebih mudah diingat dalam *working memory* siswa.",
+        "Desain media ini bertumpu pada Dual Coding Theory (Paivio), di mana integrasi stimulasi verbal (penjelasan guru) dan gambar (slide PPT) terbukti lebih mudah diingat dalam working memory siswa.",
+      fileLinks: [
+        { label: "📊 PPT Pertemuan 1 (PPTX)", url: "Siklus%201/Media%20Pembelajaran/PPT_P1_Siklus1.pptx" },
+      ],
     },
     "modal-asesmen1": {
       title: "Perangkat Asesmen Terpadu — Siklus 1",
@@ -314,74 +326,120 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       theory:
         "Asesmen ini mengimplementasikan konsep Assessment for Learning dan Assessment as Learning (Earl, 2003). Rubrik unjuk kerjanya berlandaskan prinsip Asesmen Autentik (Wiggins) di mana siswa dinilai melalui performa praktik yang menyerupai standar industri manufaktur sesungguhnya.",
+      fileLinks: [
+        { label: "📋 Asesmen Siklus 1 (DOCX)", url: "Siklus%201/Asesmen/Asesmen_Siklus1_FIX.docx" },
+      ],
     },
-    "modal-hasil1": {
-      title: "Lembar Kerja Murid (LKM) & Portofolio Siswa",
-      type: "Dokumen Hasil Praktik",
+    "modal-lkm1": {
+      title: "Lembar Kerja Murid (LKM) Siklus 1",
+      type: "LKM Pertemuan 1–3 (Kelas XI TPM)",
       context:
-        "LKM dirancang khusus untuk memandu siswa tahap demi tahap. Siswa diwajibkan melampirkan screenshot pada tahap-tahap krusial.",
+        "LKM dirancang khusus untuk memandu siswa tahap demi tahap selama tiga pertemuan. Setiap LKM dilengkapi kolom screenshot hasil kerja pada tahap-tahap krusial perakitan di Autodesk Inventor.",
       purpose:
-        "Merekam proses dan rekam jejak praktik (portofolio) setiap siswa secara individu. Melatih kedisiplinan dan prosedur kerja operasional di software CAD.",
+        "Merekam proses dan rekam jejak praktik (portofolio) setiap siswa secara individu, sekaligus melatih kedisiplinan dan prosedur kerja operasional software CAD.",
       pros: [
         'Terdapat kolom "Self-Assessment" dan "Refleksi/Kendala" yang melatih kemandirian siswa.',
-        "Tugas didokumentasikan rapi sebagai portofolio belajar.",
+        "Tugas didokumentasikan rapi sebagai portofolio belajar dari pertemuan 1 hingga 3.",
+        "Instruksi bertahap memudahkan siswa mengikuti alur perakitan tanpa kebingungan.",
       ],
       cons: [
-        "Ada risiko siswa sekadar meniru *screenshot* teman bila guru tidak memonitor layar mereka satu-per-satu.",
+        "Ada risiko siswa sekadar meniru screenshot teman bila guru tidak memonitor layar mereka satu-per-satu.",
+        "Format cetak LKM memerlukan biaya pengadaan tambahan jika jumlah siswa banyak.",
       ],
       theory:
-        "Fitur self-assessment dan refleksi di dalam LKM ini merepresentasikan implementasi dari Self-Regulated Learning (Zimmerman), di mana siswa diajak secara sadar mengevaluasi progres dan kendala yang mereka hadapi dalam merakit.",
+        "Fitur self-assessment dan refleksi di dalam LKM ini merepresentasikan implementasi Self-Regulated Learning (Zimmerman), di mana siswa diajak secara sadar mengevaluasi progres dan kendala yang mereka hadapi dalam merakit.",
+      fileLinks: [
+        { label: "📝 LKM Pertemuan 1 (DOCX)", url: "Siklus%201/LKM/LKM_Siklus-1_P1.docx" },
+        { label: "📝 LKM Pertemuan 2 (DOCX)", url: "Siklus%201/LKM/LKM_Siklus-1_P2.docx" },
+        { label: "📝 LKM Pertemuan 3 (DOCX)", url: "Siklus%201/LKM/LKM_Siklus-1_P3.docx" },
+      ],
     },
-    "modal-video1": {
-      title: "Video Pelaksanaan PPL — Siklus 1",
-      type: "Dokumentasi Audiovisual",
+    "modal-toolpost": {
+      title: "Gambar Teknik Tool Post — Revisi",
+      type: "Gambar Rakitan Teknik (PDF)",
       context:
-        "Video perekaman realisasi skenario RPP Deep Learning di dalam kelas XI TPM, SMKN 2 Depok Sleman.",
+        "File PDF ini merupakan gambar rakitan Tool Post hasil revisi yang digunakan sebagai objek referensi utama dalam praktik Assembly di Siklus 1. Tool Post adalah komponen pemegang pahat pada mesin bubut yang terdiri dari 8 part utama.",
       purpose:
-        "Mendokumentasikan penerapan praktik mengajar secara riil, memuat tahapan pendahuluan, inti (scaffolding dan pengerjaan LKM), hingga penutup.",
+        "Menyediakan gambar kerja terstandar sebagai acuan siswa dalam merakit komponen secara virtual di Autodesk Inventor, sekaligus melatih kemampuan membaca gambar teknik manufaktur.",
       pros: [
-        "Menjadi bukti empiris dari kompetensi pedagogik guru dan pengelolaan interaksi siswa (terlihat dari sesi bimbingan berkeliling).",
-        "Menunjukkan atmosfer lab komputer yang kondusif.",
+        "Gambar rakitan lengkap memuat 8 komponen dengan dimensi yang terstandar.",
+        "Format PDF memudahkan distribusi dan tampilan di layar maupun cetak.",
+        "Menjadi jembatan antara gambar 2D di kertas dengan model 3D Assembly di CAD.",
       ],
       cons: [
-        "Keterbatasan angle kamera tunggal yang membuat aktivitas di sudut belakang kelas kurang terekam dengan jelas.",
+        "File PDF statis tidak dapat langsung dimanipulasi siswa, perlu dikonversi ke format CAD terlebih dahulu.",
+        "Resolusi gambar perlu dijaga kualitasnya agar detail dimensi tetap terbaca jelas.",
       ],
       theory:
-        "Video ini menjadi alat utama untuk Reflective Practice (Schon) yang memungkinkan calon guru melakukan reflection-on-action dengan mengevaluasi bahasa tubuh, kejelasan instruksi, serta respon langsung dari para murid.",
+        "Penggunaan gambar teknik sebagai media pembelajaran mengacu pada teori Representasi Ganda (Multiple Representation) yang memperkuat pemahaman konseptual siswa melalui hubungan antara gambar proyeksi 2D dan visualisasi 3D yang mereka bangun di software CAD.",
+      pdfPreview: "Siklus%201/Tool%20Post%20Rev.pdf",
+      fileLinks: [
+        { label: "📐 Tool Post Rev (PDF)", url: "Siklus%201/Tool%20Post%20Rev.pdf" },
+      ],
     },
   };
 
   function openModal(modalId) {
-    const data = artifactData[modalId] || artifactData["default"];
+    const data = artifactData[modalId];
+    if (!data) return;
 
-    let prosHtml = data.pros.map((p) => `<li>✅ ${p}</li>`).join("");
-    let consHtml = data.cons.map((c) => `<li>⚠️ ${c}</li>`).join("");
+    const prosHtml = data.pros.map((p) => `<li>✅ ${p}</li>`).join("");
+    const consHtml = data.cons.map((c) => `<li>⚠️ ${c}</li>`).join("");
+
+    const fileLinksHtml = data.fileLinks && data.fileLinks.length
+      ? `<div class="modal-files">
+           <h4>📂 File Artefak</h4>
+           <div class="modal-file-list">
+             ${data.fileLinks.map((f) =>
+               `<a class="modal-file-btn" href="${f.url}" target="_blank" rel="noopener noreferrer">${f.label}</a>`
+             ).join("")}
+           </div>
+         </div>`
+      : "";
+
+    const pdfPreviewHtml = data.pdfPreview
+      ? `<div class="modal-pdf-preview">
+           <h4>🖼️ Preview Dokumen</h4>
+           <div class="pdf-embed-wrapper">
+             <object data="${data.pdfPreview}" type="application/pdf" class="pdf-embed" aria-label="Preview ${data.title}">
+               <div class="pdf-fallback">
+                 <span>🗂️</span>
+                 <p>Preview tidak tersedia di browser ini.</p>
+                 <a href="${data.pdfPreview}" target="_blank" rel="noopener noreferrer" class="modal-file-btn">Buka File PDF</a>
+               </div>
+             </object>
+           </div>
+         </div>`
+      : "";
 
     modalContent.innerHTML = `
       <div class="modal-header">
         <h3>${data.title}</h3>
-        <p>${data.type}</p>
+        <p class="modal-type-badge">${data.type}</p>
       </div>
       <div class="modal-body">
         <h4>📌 Konteks Pembuatan</h4>
         <p>${data.context}</p>
-        
+
         <h4>🎯 Tujuan</h4>
         <p>${data.purpose}</p>
-        
+
         <h4>📈 Kelebihan & Kekurangan</h4>
         <ul>
           ${prosHtml}
           ${consHtml}
         </ul>
-        
+
         <h4>📖 Kajian Teori</h4>
         <p>${data.theory}</p>
+
+        ${pdfPreviewHtml}
+        ${fileLinksHtml}
       </div>
     `;
 
     modalOverlay.classList.add("active");
-    document.body.style.overflow = "hidden"; // Prevent background scrolling
+    document.body.style.overflow = "hidden";
   }
 
   function closeModal() {
@@ -393,6 +451,13 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       openModal(btn.getAttribute("data-modal"));
+    });
+    // Keyboard accessibility for div-based triggers
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(btn.getAttribute("data-modal"));
+      }
     });
   });
 
