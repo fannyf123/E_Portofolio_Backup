@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-rpp1': {
       title: 'RPP Siklus 1 — Gambar Teknik Manufaktur (Deep Learning)',
       type: 'RPP & Modul Ajar (Fase F / Kelas XI TPM)',
-      context: 'RPP ini disusun untuk kelas XI Teknik Pemesinan (TPM) di SMK Negeri 2 Depok Sleman pada materi "Perancangan Gambar Rakitan Kompleks (Assembly) Menggunakan Aplikasi Teknologi CAD". Latar belakang penyusunan didasarkan pada hasil asesmen diagnostik di mana mayoritas siswa memiliki gaya belajar visual-kinestetik dan sudah menguasai dasar 3D Part Modeling (.ipt).',
-      purpose: 'Menerapkan Perencanaan Pembelajaran Mendalam (Deep Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam, membimbing mereka dari merakit komponen fisik di bengkel hingga mahir merakit secara virtual (Assembly) di Autodesk Inventor.',
+      pdfUrl: 'Siklus 1/RPP Siklus 1_FIX .pdf', // Changed to display PDF directly
+      context: 'RPP ini disusun untuk kelas XI Teknik Pemesinan (TPM) di SMK Negeri 2 Depok Sleman pada materi "Perancangan Gambar Rakitan Kompleks (Assembly) Menggunakan Aplikasi Teknologi CAD". [...]',
+      purpose: 'Menerapkan Perencanaan Pembelajaran Mendalam (Deep Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam, membimbing mereka dari merakit komponen fisik di bengkel hing[...]',
       pros: [
         'Menerapkan scaffolding (panduan bertahap) bagi murid yang butuh panduan ekstra.',
         'Menyediakan pengayaan eksplorasi fitur lanjut bagi siswa yang lebih cepat paham.',
@@ -26,13 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'Membutuhkan ketersediaan perangkat komputer yang memadai untuk menjalankan software CAD yang berat.',
         'Alokasi waktu (24 JP) harus dikelola ketat agar semua siswa mencapai target kompetensi perakitan kompleks.'
       ],
-      theory: 'Pembelajaran ini didasarkan pada teori Konstruktivisme Vygotsky dengan penerapan Scaffolding. Pendekatan Diferensiasi (Tomlinson) juga diterapkan dengan membedakan proses belajar antara kelompok yang butuh panduan bertahap dengan kelompok yang siap untuk eksplorasi mandiri.'
+      theory: 'Pembelajaran ini didasarkan pada teori Konstruktivisme Vygotsky dengan penerapan Scaffolding. Pendekatan Diferensiasi (Tomlinson) juga diterapkan dengan membedakan proses belajar an[...]'
     },
     'modal-modul1': {
       title: 'Bahan Ajar — Assembly Tool Post',
       type: 'Modul Ajar / Bahan Ajar Cetak & Digital',
+      pdfUrl: 'Siklus 1/Materi/Modul.pdf', // Example placeholder, please verify real path
       context: 'Modul ini dirancang khusus untuk Siklus 1, materi "Perancangan Gambar Rakitan Kompleks". Disusun berdasarkan Capaian Pembelajaran Fase F.',
-      purpose: 'Menyediakan panduan sistematis bagi siswa untuk merakit 8 komponen utama Tool Post (menetapkan Grounded Component, constraint Mate, Flush, Insert) hingga mencapai derajat kebebasan (DOF) = 0.',
+      purpose: 'Menyediakan panduan sistematis bagi siswa untuk merakit 8 komponen utama Tool Post (menetapkan Grounded Component, constraint Mate, Flush, Insert) hingga mencapai derajat kebebasan[...]',
       pros: [
         'Terstruktur secara runtut mulai dari tujuan hingga referensi.',
         'Dilengkapi bagian Panduan Troubleshooting Error Umum yang sangat praktis bagi siswa SMK.',
@@ -42,11 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'Teks instruksional dalam format dokumen kurang interaktif dibandingkan video tutorial.',
         'Biaya cetak yang cukup tinggi jika memperbanyak modul berhalaman tebal secara fisik.'
       ],
-      theory: 'Pengembangan bahan ajar ini didasarkan pada prinsip Cognitive Load Theory (Sweller) yang berusaha mengurangi extraneous cognitive load dengan menyajikan informasi esensial seperti daftar komponen dan troubleshooting secara ringkas dan terfokus.'
+      theory: 'Pengembangan bahan ajar ini didasarkan pada prinsip Cognitive Load Theory (Sweller) yang berusaha mengurangi extraneous cognitive load dengan menyajikan informasi esensial seperti d[...]'
     },
     'modal-media1': {
       title: 'Media Presentasi (PPT) — Assembly Tool Post',
       type: 'Media Pembelajaran (Slide Interaktif)',
+      pdfUrl: 'Siklus 1/Media Pembelajaran/Media.pdf', // Example placeholder
       context: 'Disusun sebagai pendamping visualisasi bagi siswa di awal pertemuan sebelum mereka turun praktik merakit komponen menggunakan komputer.',
       purpose: 'Memvisualisasikan bentuk akhir dari Tool Post secara 3D untuk memancing atensi (hook) serta menjelaskan langkah krusial seperti perbedaan constraint Mate dan Flush.',
       pros: [
@@ -57,12 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'Bersifat komunikasi satu arah.',
         'Masih membutuhkan demonstrasi software langsung agar siswa benar-benar paham alur klik pada mouse.'
       ],
-      theory: 'Desain media ini bertumpu pada Dual Coding Theory (Paivio), di mana integrasi stimulasi verbal (penjelasan guru) dan gambar (slide PPT) terbukti lebih mudah diingat dalam *working memory* siswa.'
+      theory: 'Desain media ini bertumpu pada Dual Coding Theory (Paivio), di mana integrasi stimulasi verbal (penjelasan guru) dan gambar (slide PPT) terbukti lebih mudah diingat dalam *working m[...]'
     },
     'modal-asesmen1': {
       title: 'Perangkat Asesmen Terpadu — Siklus 1',
       type: 'Instrumen Asesmen (Diagnostik, Formatif, Sumatif)',
-      context: 'Dikembangkan untuk memantau kemajuan siswa dari sebelum hingga sesudah pembelajaran. Memuat instrumen Asesmen Awal, Lembar Observasi Guru, Exit Ticket per pertemuan, dan Rubrik Sumatif.',
+      pdfUrl: 'Siklus 1/Asesmen/Asesmen_Siklus1_FIX.pdf', // Path from the repo
+      context: 'Dikembangkan untuk memantau kemajuan siswa dari sebelum hingga sesudah pembelajaran. Memuat instrumen Asesmen Awal, Lembar Observasi Guru, Exit Ticket per pertemuan, dan Rubrik Sum[...]',
       purpose: 'Memetakan tingkat pemahaman awal siswa (untuk pengelompokan scaffolding) dan mengevaluasi ketercapaian perakitan Tool Post secara autentik.',
       pros: [
         'Sangat komprehensif dan berkelanjutan (mulai dari pra-pembelajaran hingga akhir).',
@@ -72,11 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
       cons: [
         'Lembar observasi manual memakan banyak waktu guru jika diterapkan pada kelas dengan jumlah siswa >30 orang.'
       ],
-      theory: 'Asesmen ini mengimplementasikan konsep Assessment for Learning dan Assessment as Learning (Earl, 2003). Rubrik unjuk kerjanya berlandaskan prinsip Asesmen Autentik (Wiggins) di mana siswa dinilai melalui performa praktik yang menyerupai standar industri manufaktur sesungguhnya.'
+      theory: 'Asesmen ini mengimplementasikan konsep Assessment for Learning dan Assessment as Learning (Earl, 2003). Rubrik unjuk kerjanya berlandaskan prinsip Asesmen Autentik (Wiggins) di mana[...]'
     },
-    'modal-hasil1': {
+    'modal-lkm1': {
       title: 'Lembar Kerja Murid (LKM) & Portofolio Siswa',
       type: 'Dokumen Hasil Praktik',
+      pdfUrl: 'Siklus 1/LKM/LKM_Siklus-1_P1.pdf', // Using P1 PDF as a placeholder
       context: 'LKM dirancang khusus untuk memandu siswa tahap demi tahap. Siswa diwajibkan melampirkan screenshot pada tahap-tahap krusial.',
       purpose: 'Merekam proses dan rekam jejak praktik (portofolio) setiap siswa secara individu. Melatih kedisiplinan dan prosedur kerja operasional di software CAD.',
       pros: [
@@ -86,52 +91,65 @@ document.addEventListener('DOMContentLoaded', () => {
       cons: [
         'Ada risiko siswa sekadar meniru *screenshot* teman bila guru tidak memonitor layar mereka satu-per-satu.'
       ],
-      theory: 'Fitur self-assessment dan refleksi di dalam LKM ini merepresentasikan implementasi dari Self-Regulated Learning (Zimmerman), di mana siswa diajak secara sadar mengevaluasi progres dan kendala yang mereka hadapi dalam merakit.'
+      theory: 'Fitur self-assessment dan refleksi di dalam LKM ini merepresentasikan implementasi dari Self-Regulated Learning (Zimmerman), di mana siswa diajak secara sadar mengevaluasi progres d[...]'
     },
-    'modal-video1': {
-      title: 'Video Pelaksanaan PPL — Siklus 1',
-      type: 'Dokumentasi Audiovisual',
-      context: 'Video perekaman realisasi skenario RPP Deep Learning di dalam kelas XI TPM, SMKN 2 Depok Sleman.',
+    'modal-toolpost': {
+      title: 'Gambar Teknik Tool Post (Revisi)',
+      type: 'Gambar Teknik',
+      pdfUrl: 'Siklus 1/Tool Post Rev.pdf', // Path from the repo
+      context: 'File PDF gambar rakitan Tool Post hasil revisi, digunakan sebagai referensi objek praktik Assembly di Siklus 1.',
       purpose: 'Mendokumentasikan penerapan praktik mengajar secara riil, memuat tahapan pendahuluan, inti (scaffolding dan pengerjaan LKM), hingga penutup.',
       pros: [
-        'Menjadi bukti empiris dari kompetensi pedagogik guru dan pengelolaan interaksi siswa (terlihat dari sesi bimbingan berkeliling).',
-        'Menunjukkan atmosfer lab komputer yang kondusif.'
+        'Menjadi referensi utama untuk objek rakitan.'
       ],
       cons: [
         'Keterbatasan angle kamera tunggal yang membuat aktivitas di sudut belakang kelas kurang terekam dengan jelas.'
       ],
-      theory: 'Video ini menjadi alat utama untuk Reflective Practice (Schon) yang memungkinkan calon guru melakukan reflection-on-action dengan mengevaluasi bahasa tubuh, kejelasan instruksi, serta respon langsung dari para murid.'
+      theory: 'Video ini menjadi alat utama untuk Reflective Practice (Schon) yang memungkinkan calon guru melakukan reflection-on-action dengan mengevaluasi bahasa tubuh, kejelasan instruksi, se[...]'
     }
   };
 
   function openModal(modalId) {
     const data = artifactData[modalId] || artifactData['modal-rpp1'];
     
-    let prosHtml = data.pros.map(p => `<li>✅ ${p}</li>`).join('');
-    let consHtml = data.cons.map(c => `<li>⚠️ ${c}</li>`).join('');
+    // Instead of text content, load an iframe if a pdfUrl is present
+    if (data.pdfUrl) {
+      modalContent.innerHTML = `
+        <div class="modal-header">
+          <h3>${data.title}</h3>
+          <p>${data.type}</p>
+        </div>
+        <div class="modal-body" style="height: 70vh;">
+          <iframe src="${data.pdfUrl}" style="width: 100%; height: 100%; border: none;" title="PDF Preview"></iframe>
+        </div>
+      `;
+    } else {
+      let prosHtml = data.pros.map(p => `<li>✅ ${p}</li>`).join('');
+      let consHtml = data.cons.map(c => `<li>⚠️ ${c}</li>`).join('');
 
-    modalContent.innerHTML = `
-      <div class="modal-header">
-        <h3>${data.title}</h3>
-        <p>${data.type}</p>
-      </div>
-      <div class="modal-body">
-        <h4>📌 Konteks Pembuatan</h4>
-        <p>${data.context}</p>
-        
-        <h4>🎯 Tujuan</h4>
-        <p>${data.purpose}</p>
-        
-        <h4>📈 Kelebihan & Kekurangan</h4>
-        <ul>
-          ${prosHtml}
-          ${consHtml}
-        </ul>
-        
-        <h4>📖 Kajian Teori</h4>
-        <p>${data.theory}</p>
-      </div>
-    `;
+      modalContent.innerHTML = `
+        <div class="modal-header">
+          <h3>${data.title}</h3>
+          <p>${data.type}</p>
+        </div>
+        <div class="modal-body">
+          <h4>📌 Konteks Pembuatan</h4>
+          <p>${data.context}</p>
+          
+          <h4>🎯 Tujuan</h4>
+          <p>${data.purpose}</p>
+          
+          <h4>📈 Kelebihan & Kekurangan</h4>
+          <ul>
+            ${prosHtml}
+            ${consHtml}
+          </ul>
+          
+          <h4>📖 Kajian Teori</h4>
+          <p>${data.theory}</p>
+        </div>
+      `;
+    }
 
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
