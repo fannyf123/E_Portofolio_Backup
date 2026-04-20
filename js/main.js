@@ -159,20 +159,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      const isActive = btn.classList.contains('active');
+      
       filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
 
-      const filter = btn.getAttribute('data-filter');
-
-      portfolioCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          card.style.display = '';
-          card.style.animation = 'fadeIn 0.5s ease forwards';
-        } else {
+      if (isActive) {
+        // Toggle off (Collapse everything)
+        portfolioCards.forEach(card => {
           card.style.display = 'none';
-        }
-      });
+        });
+      } else {
+        // Toggle on (Expand)
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        portfolioCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = '';
+            card.style.animation = 'fadeIn 0.5s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
     });
   });
 
