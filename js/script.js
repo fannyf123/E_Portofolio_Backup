@@ -1,1 +1,6 @@
-Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2026-04-20 01:49:29
+/* Legacy placeholder file.
+   Main scripts are loaded via:
+   - js/main.js
+   - js/artefak.js
+   - js/particles.js
+*/

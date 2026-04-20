@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-rpp1': {
       title: 'RPP Siklus 1 — Gambar Teknik Manufaktur (Deep Learning)',
       type: 'RPP & Modul Ajar (Fase F / Kelas XI TPM)',
-      pdfUrl: 'Siklus 1/RPP Siklus 1_FIX .pdf', // Changed to display PDF directly
+      fileUrl: 'Siklus 1/RPP Siklus 1_FIX .docx',
       context: 'RPP ini disusun untuk kelas XI Teknik Pemesinan (TPM) di SMK Negeri 2 Depok Sleman pada materi "Perancangan Gambar Rakitan Kompleks (Assembly) Menggunakan Aplikasi Teknologi CAD". [...]',
       purpose: 'Menerapkan Perencanaan Pembelajaran Mendalam (Deep Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam, membimbing mereka dari merakit komponen fisik di bengkel hing[...]',
       pros: [
@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       theory: 'Pembelajaran ini didasarkan pada teori Konstruktivisme Vygotsky dengan penerapan Scaffolding. Pendekatan Diferensiasi (Tomlinson) juga diterapkan dengan membedakan proses belajar an[...]'
     },
-    'modal-modul1': {
+    'modal-materi1': {
       title: 'Bahan Ajar — Assembly Tool Post',
       type: 'Modul Ajar / Bahan Ajar Cetak & Digital',
-      pdfUrl: 'Siklus 1/Materi/Modul.pdf', // Example placeholder, please verify real path
+      fileUrl: 'Siklus 1/Materi/Materi_Siklus-1_P1.pdf',
       context: 'Modul ini dirancang khusus untuk Siklus 1, materi "Perancangan Gambar Rakitan Kompleks". Disusun berdasarkan Capaian Pembelajaran Fase F.',
       purpose: 'Menyediakan panduan sistematis bagi siswa untuk merakit 8 komponen utama Tool Post (menetapkan Grounded Component, constraint Mate, Flush, Insert) hingga mencapai derajat kebebasan[...]',
       pros: [
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-media1': {
       title: 'Media Presentasi (PPT) — Assembly Tool Post',
       type: 'Media Pembelajaran (Slide Interaktif)',
-      pdfUrl: 'Siklus 1/Media Pembelajaran/Media.pdf', // Example placeholder
+      fileUrl: 'Siklus 1/Media Pembelajaran/PPT_P1_Siklus1.pptx',
       context: 'Disusun sebagai pendamping visualisasi bagi siswa di awal pertemuan sebelum mereka turun praktik merakit komponen menggunakan komputer.',
       purpose: 'Memvisualisasikan bentuk akhir dari Tool Post secara 3D untuk memancing atensi (hook) serta menjelaskan langkah krusial seperti perbedaan constraint Mate dan Flush.',
       pros: [
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-asesmen1': {
       title: 'Perangkat Asesmen Terpadu — Siklus 1',
       type: 'Instrumen Asesmen (Diagnostik, Formatif, Sumatif)',
-      pdfUrl: 'Siklus 1/Asesmen/Asesmen_Siklus1_FIX.pdf', // Path from the repo
+      fileUrl: 'Siklus 1/Asesmen/Asesmen_Siklus1_FIX.pdf', // Path from the repo
       context: 'Dikembangkan untuk memantau kemajuan siswa dari sebelum hingga sesudah pembelajaran. Memuat instrumen Asesmen Awal, Lembar Observasi Guru, Exit Ticket per pertemuan, dan Rubrik Sum[...]',
       purpose: 'Memetakan tingkat pemahaman awal siswa (untuk pengelompokan scaffolding) dan mengevaluasi ketercapaian perakitan Tool Post secara autentik.',
       pros: [
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-lkm1': {
       title: 'Lembar Kerja Murid (LKM) & Portofolio Siswa',
       type: 'Dokumen Hasil Praktik',
-      pdfUrl: 'Siklus 1/LKM/LKM_Siklus-1_P1.pdf', // Using P1 PDF as a placeholder
+      fileUrl: 'Siklus 1/LKM/LKM_Siklus-1_P1.pdf', // Using P1 PDF as a placeholder
       context: 'LKM dirancang khusus untuk memandu siswa tahap demi tahap. Siswa diwajibkan melampirkan screenshot pada tahap-tahap krusial.',
       purpose: 'Merekam proses dan rekam jejak praktik (portofolio) setiap siswa secara individu. Melatih kedisiplinan dan prosedur kerja operasional di software CAD.',
       pros: [
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-toolpost': {
       title: 'Gambar Teknik Tool Post (Revisi)',
       type: 'Gambar Teknik',
-      pdfUrl: 'Siklus 1/Tool Post Rev.pdf', // Path from the repo
+      fileUrl: 'Siklus 1/Tool Post Rev.pdf', // Path from the repo
       context: 'File PDF gambar rakitan Tool Post hasil revisi, digunakan sebagai referensi objek praktik Assembly di Siklus 1.',
       purpose: 'Mendokumentasikan penerapan praktik mengajar secara riil, memuat tahapan pendahuluan, inti (scaffolding dan pengerjaan LKM), hingga penutup.',
       pros: [
@@ -111,19 +111,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(modalId) {
     const data = artifactData[modalId] || artifactData['modal-rpp1'];
+    const fileUrl = data.fileUrl || '';
+    const canPreviewPdf = Boolean(fileUrl && /\.pdf(?:$|[?#])/i.test(fileUrl));
     
-    // Instead of text content, load an iframe if a pdfUrl is present
-    if (data.pdfUrl) {
+    if (canPreviewPdf) {
       modalContent.innerHTML = `
         <div class="modal-header">
           <h3>${data.title}</h3>
           <p>${data.type}</p>
         </div>
         <div class="modal-body" style="height: 70vh;">
-          <iframe src="${data.pdfUrl}" style="width: 100%; height: 100%; border: none;" title="PDF Preview"></iframe>
+          <iframe src="${fileUrl}" style="width: 100%; height: 100%; border: none;" title="PDF Preview"></iframe>
         </div>
       `;
     } else {
+      const fileInfoHtml = fileUrl
+        ? `
+          <div class="modal-files">
+            <h4>📎 File Artefak</h4>
+            <div class="modal-file-list">
+              <a class="modal-file-btn" href="${fileUrl}" target="_blank" rel="noopener noreferrer">Buka File</a>
+            </div>
+          </div>
+        `
+        : '';
+
       let prosHtml = data.pros.map(p => `<li>✅ ${p}</li>`).join('');
       let consHtml = data.cons.map(c => `<li>⚠️ ${c}</li>`).join('');
 
@@ -147,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <h4>📖 Kajian Teori</h4>
           <p>${data.theory}</p>
+          ${fileInfoHtml}
         </div>
       `;
     }
