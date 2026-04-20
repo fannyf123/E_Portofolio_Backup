@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-materi1': {
       title: 'Bahan Ajar — Assembly Tool Post',
       type: 'Modul Ajar / Bahan Ajar Cetak & Digital',
-      pdfUrl: 'Siklus 1/Materi/Materi_Siklus-1_P1.pdf',
+      fileUrl: 'Siklus 1/Materi/Materi_Siklus-1_P1.pdf',
       context: 'Modul ini dirancang khusus untuk Siklus 1, materi "Perancangan Gambar Rakitan Kompleks". Disusun berdasarkan Capaian Pembelajaran Fase F.',
       purpose: 'Menyediakan panduan sistematis bagi siswa untuk merakit 8 komponen utama Tool Post (menetapkan Grounded Component, constraint Mate, Flush, Insert) hingga mencapai derajat kebebasan[...]',
       pros: [
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-asesmen1': {
       title: 'Perangkat Asesmen Terpadu — Siklus 1',
       type: 'Instrumen Asesmen (Diagnostik, Formatif, Sumatif)',
-      pdfUrl: 'Siklus 1/Asesmen/Asesmen_Siklus1_FIX.pdf', // Path from the repo
+      fileUrl: 'Siklus 1/Asesmen/Asesmen_Siklus1_FIX.pdf', // Path from the repo
       context: 'Dikembangkan untuk memantau kemajuan siswa dari sebelum hingga sesudah pembelajaran. Memuat instrumen Asesmen Awal, Lembar Observasi Guru, Exit Ticket per pertemuan, dan Rubrik Sum[...]',
       purpose: 'Memetakan tingkat pemahaman awal siswa (untuk pengelompokan scaffolding) dan mengevaluasi ketercapaian perakitan Tool Post secara autentik.',
       pros: [
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-lkm1': {
       title: 'Lembar Kerja Murid (LKM) & Portofolio Siswa',
       type: 'Dokumen Hasil Praktik',
-      pdfUrl: 'Siklus 1/LKM/LKM_Siklus-1_P1.pdf', // Using P1 PDF as a placeholder
+      fileUrl: 'Siklus 1/LKM/LKM_Siklus-1_P1.pdf', // Using P1 PDF as a placeholder
       context: 'LKM dirancang khusus untuk memandu siswa tahap demi tahap. Siswa diwajibkan melampirkan screenshot pada tahap-tahap krusial.',
       purpose: 'Merekam proses dan rekam jejak praktik (portofolio) setiap siswa secara individu. Melatih kedisiplinan dan prosedur kerja operasional di software CAD.',
       pros: [
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-toolpost': {
       title: 'Gambar Teknik Tool Post (Revisi)',
       type: 'Gambar Teknik',
-      pdfUrl: 'Siklus 1/Tool Post Rev.pdf', // Path from the repo
+      fileUrl: 'Siklus 1/Tool Post Rev.pdf', // Path from the repo
       context: 'File PDF gambar rakitan Tool Post hasil revisi, digunakan sebagai referensi objek praktik Assembly di Siklus 1.',
       purpose: 'Mendokumentasikan penerapan praktik mengajar secara riil, memuat tahapan pendahuluan, inti (scaffolding dan pengerjaan LKM), hingga penutup.',
       pros: [
@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(modalId) {
     const data = artifactData[modalId] || artifactData['modal-rpp1'];
-    const canPreviewPdf = Boolean(data.pdfUrl && /\.pdf(?:$|[?#])/i.test(data.pdfUrl));
-    const fileUrl = data.fileUrl || data.pdfUrl || '';
+    const fileUrl = data.fileUrl || '';
+    const canPreviewPdf = Boolean(fileUrl && /\.pdf(?:$|[?#])/i.test(fileUrl));
     
     if (canPreviewPdf) {
       modalContent.innerHTML = `
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>${data.type}</p>
         </div>
         <div class="modal-body" style="height: 70vh;">
-          <iframe src="${data.pdfUrl}" style="width: 100%; height: 100%; border: none;" title="PDF Preview"></iframe>
+          <iframe src="${fileUrl}" style="width: 100%; height: 100%; border: none;" title="PDF Preview"></iframe>
         </div>
       `;
     } else {
