@@ -266,9 +266,9 @@
   50%      { transform: translateY(-10px); }
 }
 
-.hero-float.top-right    { top: 5%; right: -60px; }
-.hero-float.bottom-left  { bottom: 15%; left: -50px; }
-.hero-float.top-left     { top: 40%; left: -70px; }
+.hero-float.top-right    { top: 15%; left: 80%; }
+.hero-float.bottom-left  { bottom: 15%; right: 75%; }
+.hero-float.top-left     { top: 45%; right: 85%; }
 
 .hero-float .float-icon {
   font-size: 1.3rem;
