@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-media1': {
       title: 'Media Presentasi (PPT) — Assembly Tool Post',
       type: 'Media Pembelajaran (Slide Interaktif)',
-      fileUrl: '', // PPTX preview is generally not natively supported
+      fileUrl: 'assets/pdf/Media_Siklus1_PPT.pdf', // PPTX converted to PDF for preview
       context: 'Disusun sebagai pendamping visualisasi bagi siswa di awal pertemuan sebelum mereka turun praktik merakit komponen menggunakan komputer.',
       purpose: 'Memvisualisasikan bentuk akhir dari Tool Post secara 3D untuk memancing atensi (hook) serta menjelaskan langkah krusial seperti perbedaan constraint Mate dan Flush.',
       pros: [
