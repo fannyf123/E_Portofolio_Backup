@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-rpp1': {
       title: 'RPP Siklus 1 — Gambar Teknik Manufaktur (Deep Learning)',
       type: 'RPP & Modul Ajar (Fase F / Kelas XI TPM)',
-      pdfUrl: 'Siklus 1/RPP Siklus 1_FIX .pdf', // Changed to display PDF directly
+      fileUrl: 'Siklus 1/RPP Siklus 1_FIX .docx',
       context: 'RPP ini disusun untuk kelas XI Teknik Pemesinan (TPM) di SMK Negeri 2 Depok Sleman pada materi "Perancangan Gambar Rakitan Kompleks (Assembly) Menggunakan Aplikasi Teknologi CAD". [...]',
       purpose: 'Menerapkan Perencanaan Pembelajaran Mendalam (Deep Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam, membimbing mereka dari merakit komponen fisik di bengkel hing[...]',
       pros: [
@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       theory: 'Pembelajaran ini didasarkan pada teori Konstruktivisme Vygotsky dengan penerapan Scaffolding. Pendekatan Diferensiasi (Tomlinson) juga diterapkan dengan membedakan proses belajar an[...]'
     },
-    'modal-modul1': {
+    'modal-materi1': {
       title: 'Bahan Ajar — Assembly Tool Post',
       type: 'Modul Ajar / Bahan Ajar Cetak & Digital',
-      pdfUrl: 'Siklus 1/Materi/Modul.pdf', // Example placeholder, please verify real path
+      pdfUrl: 'Siklus 1/Materi/Materi_Siklus-1_P1.pdf',
       context: 'Modul ini dirancang khusus untuk Siklus 1, materi "Perancangan Gambar Rakitan Kompleks". Disusun berdasarkan Capaian Pembelajaran Fase F.',
       purpose: 'Menyediakan panduan sistematis bagi siswa untuk merakit 8 komponen utama Tool Post (menetapkan Grounded Component, constraint Mate, Flush, Insert) hingga mencapai derajat kebebasan[...]',
       pros: [
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-media1': {
       title: 'Media Presentasi (PPT) — Assembly Tool Post',
       type: 'Media Pembelajaran (Slide Interaktif)',
-      pdfUrl: 'Siklus 1/Media Pembelajaran/Media.pdf', // Example placeholder
+      fileUrl: 'Siklus 1/Media Pembelajaran/PPT_P1_Siklus1.pptx',
       context: 'Disusun sebagai pendamping visualisasi bagi siswa di awal pertemuan sebelum mereka turun praktik merakit komponen menggunakan komputer.',
       purpose: 'Memvisualisasikan bentuk akhir dari Tool Post secara 3D untuk memancing atensi (hook) serta menjelaskan langkah krusial seperti perbedaan constraint Mate dan Flush.',
       pros: [
@@ -111,9 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(modalId) {
     const data = artifactData[modalId] || artifactData['modal-rpp1'];
+    const canPreviewPdf = Boolean(data.pdfUrl && /\.pdf(?:$|[?#])/i.test(data.pdfUrl));
+    const fileUrl = data.fileUrl || data.pdfUrl || '';
     
-    // Instead of text content, load an iframe if a pdfUrl is present
-    if (data.pdfUrl) {
+    if (canPreviewPdf) {
       modalContent.innerHTML = `
         <div class="modal-header">
           <h3>${data.title}</h3>
@@ -124,6 +125,17 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
     } else {
+      const fileInfoHtml = fileUrl
+        ? `
+          <div class="modal-files">
+            <h4>📎 File Artefak</h4>
+            <div class="modal-file-list">
+              <a class="modal-file-btn" href="${fileUrl}" target="_blank" rel="noopener noreferrer">Buka File</a>
+            </div>
+          </div>
+        `
+        : '';
+
       let prosHtml = data.pros.map(p => `<li>✅ ${p}</li>`).join('');
       let consHtml = data.cons.map(c => `<li>⚠️ ${c}</li>`).join('');
 
@@ -147,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <h4>📖 Kajian Teori</h4>
           <p>${data.theory}</p>
+          ${fileInfoHtml}
         </div>
       `;
     }
