@@ -8,9 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Loading Screen ----------
   const loadingScreen = document.getElementById('loadingScreen');
   if (loadingScreen) {
-    setTimeout(() => {
+    const loadingDelay = window.innerWidth <= 768 ? 950 : 1550;
+    const hideLoadingScreen = () => {
+      if (loadingScreen.dataset.dismissed === 'true') return;
+      loadingScreen.dataset.dismissed = 'true';
       loadingScreen.classList.add('hidden');
-    }, 1800);
+      window.setTimeout(() => loadingScreen.remove(), 520);
+    };
+
+    window.setTimeout(hideLoadingScreen, loadingDelay);
+    window.addEventListener('load', () => {
+      window.setTimeout(hideLoadingScreen, 120);
+    }, { once: true });
   }
 
   // ---------- Scroll Progress Bar ----------
@@ -107,12 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navLinksEl = document.getElementById('navLinks');
 
-  hamburger.addEventListener('click', () => {
+  hamburger?.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinksEl.classList.toggle('open');
   });
 
-  navLinksEl.querySelectorAll('a').forEach(link => {
+  navLinksEl?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       navLinksEl.classList.remove('open');
@@ -157,6 +166,48 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   revealElements.forEach(el => revealObserver.observe(el));
+
+  // ---------- Scene Activation ----------
+  const sceneSections = document.querySelectorAll('.section[data-scene-index]');
+
+  function syncActiveScene() {
+    let activeSection = null;
+    const viewportAnchor = window.innerHeight * 0.42;
+
+    sceneSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const overlapsViewport = rect.bottom > 0 && rect.top < window.innerHeight;
+      const containsAnchor = rect.top <= viewportAnchor && rect.bottom >= viewportAnchor;
+
+      if (!overlapsViewport) return;
+
+      if (containsAnchor) {
+        activeSection = section;
+      } else if (!activeSection && rect.top > 0) {
+        activeSection = section;
+      }
+    });
+
+    sceneSections.forEach(section => {
+      section.classList.toggle('scene-active', section === activeSection);
+    });
+  }
+
+  const sceneObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scene-seen');
+      }
+    });
+    syncActiveScene();
+  }, {
+    threshold: [0.18, 0.4, 0.7],
+    rootMargin: '-10% 0px -12% 0px'
+  });
+
+  sceneSections.forEach(section => sceneObserver.observe(section));
+  window.addEventListener('scroll', syncActiveScene, { passive: true });
+  syncActiveScene();
 
   // ---------- Skill Bar Animation ----------
   const skillBars = document.querySelectorAll('.bar-fill');
@@ -329,13 +380,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- Skills Tabs ----------
   const skillsTabBtns = document.querySelectorAll('.skills-tab-btn');
+
+  function animateSkillCards(panel) {
+    if (!panel) return;
+    const cards = panel.querySelectorAll('.skill-item-card');
+
+    cards.forEach((card, index) => {
+      card.style.setProperty('--stagger', index);
+      card.classList.remove('visible');
+    });
+
+    window.requestAnimationFrame(() => {
+      cards.forEach((card, index) => {
+        window.setTimeout(() => {
+          card.classList.add('visible');
+        }, 50 + (index * 70));
+      });
+    });
+  }
+
   skillsTabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       skillsTabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.querySelectorAll('.skills-panel').forEach(p => p.classList.remove('active'));
       const target = document.getElementById('skills-' + btn.getAttribute('data-skills-tab'));
-      if (target) target.classList.add('active');
+      if (target) {
+        target.classList.add('active');
+        animateSkillCards(target);
+      }
     });
   });
 
@@ -426,6 +499,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft' && lightboxPrev) lightboxPrev.click();
     if (e.key === 'ArrowRight' && lightboxNext) lightboxNext.click();
   });
+
+  handleNavScroll();
+  updateScrollProgress();
+  highlightNav();
 
 }); // End DOMContentLoaded
 
