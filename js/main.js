@@ -4,14 +4,23 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const isEndfieldUI = document.body.classList.contains('endfield-ui');
 
   // ---------- Loading Screen ----------
   const loadingScreen = document.getElementById('loadingScreen');
+  const loadingPercent = document.getElementById('loadingPercent');
   if (loadingScreen) {
     const loadingDelay = window.innerWidth <= 768 ? 950 : 1550;
+    let progressValue = 0;
+    const progressTimer = loadingPercent ? window.setInterval(() => {
+      progressValue = Math.min(progressValue + Math.ceil((100 - progressValue) * 0.14), 97);
+      loadingPercent.textContent = `${String(progressValue).padStart(3, '0')}%`;
+    }, 90) : null;
     const hideLoadingScreen = () => {
       if (loadingScreen.dataset.dismissed === 'true') return;
       loadingScreen.dataset.dismissed = 'true';
+      if (progressTimer) window.clearInterval(progressTimer);
+      if (loadingPercent) loadingPercent.textContent = '100%';
       loadingScreen.classList.add('hidden');
       window.setTimeout(() => loadingScreen.remove(), 520);
     };
@@ -90,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Active Nav Link ----------
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
+  const railAnchors = document.querySelectorAll('.interface-rail .rail-anchor');
 
   function highlightNav() {
     const scrollPos = window.scrollY + 120;
@@ -105,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');
           }
+        });
+        railAnchors.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
         });
       }
     });
@@ -133,12 +146,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
   const savedTheme = localStorage.getItem('theme');
 
+  if (isEndfieldUI) {
+    document.documentElement.removeAttribute('data-theme');
+  } else
   if (savedTheme !== 'light') {
     document.documentElement.setAttribute('data-theme', 'dark');
     if (themeIcon) themeIcon.textContent = '☀️';
   }
 
   themeToggle?.addEventListener('click', () => {
+    if (isEndfieldUI) return;
     const current = document.documentElement.getAttribute('data-theme');
     if (current === 'dark') {
       document.documentElement.removeAttribute('data-theme');
