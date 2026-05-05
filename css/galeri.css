@@ -1,0 +1,163 @@
+/* ============================================
+   GALLERY SECTION (MINIMALIST ACCORDION)
+   ============================================ */
+
+.gallery-accordion {
+  display: flex;
+  width: 100%;
+  height: 450px;
+  gap: 12px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 32px;
+}
+
+.gallery-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: auto;
+  aspect-ratio: auto;
+  transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.4s ease;
+  cursor: pointer;
+  filter: grayscale(30%) brightness(0.7);
+  background: var(--surface-light);
+}
+
+.gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  min-width: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover & Active States */
+.gallery-item:hover,
+.gallery-item.active {
+  flex: 4;
+  filter: grayscale(0%) brightness(1);
+}
+
+.gallery-item:hover img,
+.gallery-item.active img {
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Caption styling */
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 24px 24px;
+  background: linear-gradient(to top, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.7) 50%, transparent 100%);
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+  pointer-events: none;
+}
+
+.gallery-item:hover .gallery-caption,
+.gallery-item.active .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-caption h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  color: white;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.gallery-caption p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Add a visual indicator for touch devices */
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: border-color 0.4s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover::after,
+.gallery-item.active::after {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .gallery-accordion {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-accordion {
+    height: 340px;
+    gap: 8px;
+  }
+  .gallery-item:hover,
+  .gallery-item.active {
+    flex: 5;
+  }
+  .gallery-caption {
+    padding: 20px 16px 16px;
+  }
+  .gallery-caption h3 {
+    font-size: 1.1rem;
+    white-space: normal;
+  }
+  .gallery-caption p {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  /* On very small mobile, stack vertically */
+  .gallery-accordion {
+    flex-direction: column;
+    height: 600px;
+    gap: 10px;
+  }
+  .gallery-item {
+    border-radius: 16px;
+  }
+  .gallery-item img {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+  }
+  .gallery-item:hover img,
+  .gallery-item.active img {
+    transform: translateY(-50%) scale(1.05);
+  }
+  .gallery-item:hover,
+  .gallery-item.active {
+    flex: 3;
+  }
+}

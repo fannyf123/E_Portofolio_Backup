@@ -64,6 +64,7 @@ Beranda | Profil | Pendidikan | Artefak | Penilaian | Model Guru | Kontak
 - **HTML5** — Struktur halaman
 - **CSS3** — Styling dengan custom properties, animasi, glassmorphism
 - **Vanilla JavaScript** — Interaktivitas tanpa framework
+- **Node.js + Vite** — Development server dan production build
 - **Google Fonts** — Tipografi: Outfit + Inter
 - **Canvas API** — Animasi partikel latar
 
@@ -72,9 +73,11 @@ Beranda | Profil | Pendidikan | Artefak | Penilaian | Model Guru | Kontak
 ## 📌 Cara Penggunaan
 
 1. Clone atau download repository ini
-2. Buka file `index.html` di browser
-3. Edit konten di `index.html` sesuai data asli Anda
-4. Upload ulang ke GitHub Pages
+2. Jalankan `npm.cmd install`
+3. Jalankan `npm.cmd run dev`
+4. Buka URL lokal yang ditampilkan Vite, biasanya `http://127.0.0.1:5173/`
+5. Edit konten di `index.html`, `css/`, atau `js/` sesuai kebutuhan
+6. Jalankan `npm.cmd run build` untuk membuat hasil produksi di folder `dist/`
 
 ---
 
