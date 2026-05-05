@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = dirname(fileURLToPath(import.meta.url));
+const base = process.env.GITHUB_ACTIONS ? '/E_Portofolio_Backup/' : './';
 
 function copyPdfAssets() {
   return {
@@ -20,7 +21,7 @@ function copyPdfAssets() {
 }
 
 export default defineConfig({
-  base: '/E_Portofolio_Backup/',
+  base,
   plugins: [copyPdfAssets()],
   build: {
     outDir: 'dist',
