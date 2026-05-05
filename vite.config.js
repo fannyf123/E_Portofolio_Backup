@@ -20,7 +20,7 @@ function copyPdfAssets() {
 }
 
 export default defineConfig({
-  base: './',
+  base: '/E_Portofolio_Backup/',
   plugins: [copyPdfAssets()],
   build: {
     outDir: 'dist',
